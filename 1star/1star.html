@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>PDM2 - W5P2 - 1 Star Exercise</title>
+    <title>PDM2 - W8P2 - 1 Star Exercise</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./lib/main-styles.css">
@@ -18,69 +18,64 @@
     <p>Your sketch:</p>
     <div class="guidance">
         <h2>Instructions</h2>
-        <h5>There are multiple tasks on this page, please read past the expected outputs.</h5>
+        <h5>In the lecture we looked at how to create a particle system. We will now look at it in more detail</h5>
         <div>
-            <p>In this exercise, you will create different complex shapes using <code>Vertex</code>.
-                You should refer to the lecture and p5.js refrence on <a href="https://p5js.org/reference/p5/vertex/" target="_blank">Vertex()</a> for help
-            </p>
-            <p>We will draw a few shapes so make sure your canvas is a good size (700,700). Remeber you can always increase the size later.
-            </p>
-            <h3>Task 1: Create a Square</h3>
-            <p>
-                When thinking about complex shapes we know we need two things, Lines and Vertices. 
-                When thinking about a square in this way we know the following are required
-            </p>
-            <ol>
-                <ul>4 Vertices</ul>
-                <ul>4 Lines</ul>
-            </ol>
-            <p>
-                To complete this task create a square by adding 4 <code>Vertex</code> points to the canvas.
-            </p>
-            <p>Remeber:</p>
-            <ol>
-                <ul>You must use <code>beginShape</code> and <code>endShape</code></ul>
-                <ul>To complete the shape add CLOSE to the <code>endShape</code> as shown below.</ul>
-                <ul><pre>endShape(CLOSE);</pre></ul>
-            </ol>
-            <p>Expected output:</p>
-            <p>
-                <img src="./assets/task1.png" width="250" height="250">
-            </p>
+            <h3>Creating a Shooting Star</h3>
+            <p>For the Star 1 tasks we are going to edit the particle system to create a shooting star</p>
+            <p>The 1 Star tasks have two .js files <code>sketch.js</code> which uses our system and <code>particle.js</code> which creates each particle</p>
+            <p>As we saw in the lecture, this system works by spawning new particles and then removing them after a set amount of time.</p>
+            <p>For the 1 Star tasks, we will look to edit the values of our particle to change how our system looks</p>
+            <h3>Task 1: Starting Position</h3>
+            <p>When looking at our system, we can see that it appears to spill out and fall downwards. There are two parts of the particle class that cause this to happen. </p>
+            <P>The first part is the <code>velocity</code> on line 5 which sets out initial starting position</P>
+            <p>The second part is gravity on line 10 which sets the direction out particle falls in</p>
+            <p>For this task, edit line 5 and 10 so that the following happens:</p>
+            <ul>
+                <ol>
+                    <p>1. Change the values on line 5 so that the particles are flowing towards the right bottom corner of the sketch</p>
+                    <p>2. Make sure that the particles remain closely packed together (they do not spread out too far)</p>
+                </ol>
+            </ul>
+            <p>Next we need to edit the gravity value:</p>
+            <ul>
+                <ol>
+                    <p>On line 10, edit the Vector values to increase the speed of the particles by increasing gravity. The speed is up to you</p>
+                    <p>Make sure the particles still flow towards the bottom right corner of the canvas</p>
+                </ol>
+            </ul>
+            <h3>Task 2: lifespan</h3>
+            <p>For this particle system we want the particles to disappear before they go off the screen</p>
+            <p>To achieve this do the following:</p>
+            <ul>
+                <ol>
+                    <p>1. Edit the lifespan value on line 6 to make the particles fade out before they leave the screen</p>
+                    <p>2. Change line 29 to be an if statement. When the lifespan is less than half of its starting value begin to fade out the particle, else draw the particle with no fade</p>
+                </ol>
+            </ul>
+            <h3>Task 3: Colour</h3>
+            <p>The final change required is to alter the colour of our particles</p>
+            <p>We can do this by:</p>
+            <ul>
+                <ol>
+                    <p>1. Edit the <code>fill()</code> value to be a yellow colour. <code>fill(240, 240, 60);</code> works well</p>
+                </ol
+            </ul>
+            <p>You will now have a particle system that sprays yellow sparks towards the bottom right of the screen, they should disappear halfway between the starting position and the bottom right corner</p>
+            <p>If you would like to take this further consider:</p>
+            <ul>
+                <ol>
+                    <p>1. Adding a Star shape to act as the shooting star </p>
+                    <p>2. Using the mouse position as the origin for the system so that the particles follow the mouse</p>
+                </ol>
+            </ul>
 
-            <h3>Task 2: Create star</h3>
-            <p>
-                In the lecture we saw how <code>Vertex</code> can be used to create a star.
-                For this task you will recreate this output.
-            </p>
-            <p>
-                To complete this task create a square by 
-            </p>
-            <ol>
-                <li>Adding 5 <code>Vertex</code> points to the canvas.</li>
-                <li>Using <code>noStroke</code> to hide the lines</li>
-                <li>Add a <code>background</code> so the shape can be seen</li>
-            </ol>
-            <p>Expected output:</p>
-            <p>
-                <img src="./assets/task2.png" width="250" height="250">
-            </p>
+         
 
-            <h3>Task 3: Time to be creative!</h3>
-            <p>
-                Now we have used <code>Vertex</code> it is time to be creative!
-                For this task create any shape and use your knowlage of p5 to add colour and change the <code>stroke</code>
-            </p>
-            <p>You do not need to recreate the same output I have below, it is just an example</p>
-           
-            <p>Example output:</p>
-            <p>
-                <img src="./assets/task3.png" width="250" height="250">
-            </p>
 
 
 
     </div>
+    <script src="particle.js"></script>
     <script src="sketch.js"></script>
   </body>
 </html>
