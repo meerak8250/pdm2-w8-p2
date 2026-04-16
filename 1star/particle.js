@@ -2,12 +2,12 @@ class Particle {
   constructor(x, y) {
     this.position = createVector(x, y);
     this.acceleration = createVector(0, 0);
-    this.velocity = createVector(random(-1, 1), random(-1, 1));
-    this.lifespan = 255.0;
+    this.velocity = createVector(random(10, 12), random(7, 10));
+    this.lifespan = 255;
   }
 
 run() {
-    let gravity = createVector(0,0.05);
+    let gravity = createVector(0,0.1);
     this.applyForce(gravity);
     this.update();
     this.show();
@@ -25,9 +25,12 @@ update() {
   }
 show() {
     stroke(0, this.lifespan);
-    
+    if (this.lifespan<0.5){
     fill(127, this.lifespan);
     circle(this.position.x, this.position.y, 8);
+    } else {
+      fill(127)
+    }
   }
 isDead() {
     return (this.lifespan < 0.0);
